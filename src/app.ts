@@ -1,4 +1,4 @@
-import { createServer } from "http"
+import { createServer } from "https"
 import { envs } from "./config/envs"
 import { MongoDatabase } from "./data"
 import { AppRoutes } from "./presentation/routes"

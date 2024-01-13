@@ -104,7 +104,7 @@
   /******** SOCKET ************/
 
   function connectToWebSockets() {
-    const socket = new WebSocket('ws://soket-restaurant-production.up.railway.app:3000/ws');
+    const socket = new WebSocket('wss://soket-restaurant-production.up.railway.app:3000/ws');
 
     socket.onmessage = (event) => {
       const { type, payload } = JSON.parse(event.data)
