@@ -1,4 +1,4 @@
-import { createServer } from "https"
+import { createServer } from "http"
 import fs from 'fs'
 import { envs } from "./config/envs"
 import { MongoDatabase } from "./data"
@@ -22,10 +22,11 @@ async function main() {
   const server = new Server({ port: envs.PORT, publicPath: envs.PUBLIC_PATH })
 
 
-  const httpServer = createServer({
-    key: fs.readFileSync('src/cert/clave_privada.key'),
-    cert: fs.readFileSync('src/cert/certificado.crt')
-  }, server.app)
+  // const httpServer = createServer({
+  //   key: fs.readFileSync('src/cert/clave_privada.key'),
+  //   cert: fs.readFileSync('src/cert/certificado.crt')
+  // }, server.app)
+  const httpServer = createServer(server.app)
 
   WssService.initWss({ server: httpServer })
   server.setRoutes(AppRoutes.router)
