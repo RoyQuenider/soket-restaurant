@@ -32,7 +32,7 @@
   }
 
   async function loadTables() {
-    const tables = await fetch('https://soket-restaurant-production.up.railway.app/api/restaurant')
+    const tables = await fetch('https://soket-restaurant-production.up.railway.app:3000/api/restaurant')
       .then(res => res.json())
       .catch(error => error)
     if (Array.isArray(tables)) {
@@ -59,7 +59,7 @@
   }
 
   function changeTableState({ idTable }) {
-    const url = 'https://soket-restaurant-production.up.railway.app/api/restaurant/updateState'
+    const url = 'https://soket-restaurant-production.up.railway.app:3000/api/restaurant/updateState'
 
     const data = {
       id: idTable,

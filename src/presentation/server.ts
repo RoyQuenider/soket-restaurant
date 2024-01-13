@@ -21,10 +21,10 @@ export class Server {
 
 
   private config() {
+    this.app.use(cors())
     this.app.use(express.json())
     this.app.use(express.urlencoded({ extended: true }))
     this.app.use(express.static(this.publicPath))
-    this.app.use(cors())
 
     this.app.get(/^\/(?!api).*/, (req, res) => {
       const indexPath = path.join(__dirname + `../../../${this.publicPath}/index.html`);
