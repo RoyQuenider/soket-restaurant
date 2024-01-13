@@ -32,7 +32,7 @@
   }
 
   async function loadTables() {
-    const tables = await fetch('http://localhost:3000/api/restaurant')
+    const tables = await fetch('https://soket-restaurant-production.up.railway.app/api/restaurant')
       .then(res => res.json())
       .catch(error => error)
     if (Array.isArray(tables)) {
@@ -59,7 +59,7 @@
   }
 
   function changeTableState({ idTable }) {
-    const url = 'http://localhost:3000/api/restaurant/updateState'
+    const url = 'https://soket-restaurant-production.up.railway.app/api/restaurant/updateState'
 
     const data = {
       id: idTable,
@@ -104,7 +104,7 @@
   /******** SOCKET ************/
 
   function connectToWebSockets() {
-    const socket = new WebSocket('ws://localhost:3000/ws');
+    const socket = new WebSocket('ws://soket-restaurant-production.up.railway.app:3000/ws');
 
     socket.onmessage = (event) => {
       const { type, payload } = JSON.parse(event.data)
